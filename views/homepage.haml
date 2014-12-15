@@ -14,7 +14,7 @@
     %h3 Generate a quote. 2-page app. No underwriting. Wow.
     %button Get Started
   %div{id: "run_a_quote", class: "quote"}
-    %form{action: "/applications", method: "post"}
+    %form{action: "/quotes", method: "post"}
       %ul{id: "questions", class: "questions"}
         %li{class: "question"}
           %label{for: "school"} School
@@ -31,7 +31,7 @@
           %label{for: "specialty"} Specialty
           %select{id: "specialty", name: "application[specialty]"}
             -locals[:specialties].each do |specialty|
-              %option{value: specialty[:short_name]}= specialty[:description]
+              %option{value: specialty.short_name}= specialty.description
         %li{class: "question"}
           %label{for: "age"} Age
           %select{id: "age", name: "application[age]"}
