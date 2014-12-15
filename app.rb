@@ -1,10 +1,11 @@
 require 'bundler'
 Bundler.setup :default
-require 'sinatra'
+require "sinatra/base"
+require "sinatra/json"
 require 'sprockets'
+require './app/routes'
 
 class GMEIDIApplication < Sinatra::Base
-  get '/' do
-    haml :homepage
-  end
+  helpers Sinatra::JSON
+  register Sinatra::GMEIDI::Routing
 end
