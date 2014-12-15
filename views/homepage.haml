@@ -30,12 +30,12 @@
         %li{class: "question"}
           %label{for: "specialty"} Specialty
           %select{id: "specialty", name: "application[specialty]"}
-            -locals[:specialties].each do |short, long|
-              %option{value: short.to_s}= long
+            -locals[:specialties].each do |specialty|
+              %option{value: specialty[:short_name]}= specialty[:description]
         %li{class: "question"}
           %label{for: "age"} Age
           %select{id: "age", name: "application[age]"}
-            - (20..40).each do |age|
+            - (28..52).each do |age|
               %option{value: age}= age
         %li{class: "question"}
           %label{for: "email"} Email

@@ -8,6 +8,7 @@ module Sinatra
       def self.registered(app)
 
         app.get '/' do
+          p Constants::SPECIALTIES
           haml :homepage, locals: { specialties: Constants::SPECIALTIES }
         end
 
