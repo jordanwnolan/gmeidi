@@ -7,4 +7,8 @@ gem 'haml'
 gem 'sass'
 gem 'therubyracer'
 gem 'coffee-script'
-gem 'byebug'
+group :development do
+  gem 'byebug'
+  gem 'guard-coffeescript'
+  gem 'guard-sass'
+end

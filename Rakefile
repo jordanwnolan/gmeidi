@@ -74,7 +74,7 @@ namespace :assets do
 
   task :dev_assets do
     javascripts = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
-    css = "#{File.dirname(__FILE__)}/app/assets/stylesheets"
+    css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
 
     Dir.foreach(javascripts) do |file|
       unless file == '.' || file == '..' || File.directory?("#{javascripts}#{file}")
