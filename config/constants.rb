@@ -51,8 +51,10 @@ module Constants
   ]
 
   QUOTES_OFFSET = 28 #28 is the lowest age for these quotes, keeping the quotes in an array
-  3500_INDEX = 0
-  5000_INDEX = 1
+  PAYOUTS = {
+    3500 => 0,
+    5000 => 1
+  }
   LEVEL_2 = 0
   LEVEL_3 = 1
   LEVEL_4 = 2
