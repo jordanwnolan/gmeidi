@@ -8,10 +8,11 @@ namespace :assets do
 
     Dir.foreach(source) do |cf|
       unless cf == '.' || cf == '..'
-        js = CoffeeScript.compile File.read("#{source}#{cf}")
-        open "#{javascripts}#{cf.gsub('.coffee', '.js')}", 'w' do |f|
-          f.puts js
-        end
+        `coffee -o #{javascripts} -c -m #{source}#{cf}`
+        # js = CoffeeScript.compile File.read("#{source}#{cf}")
+        # open "#{javascripts}#{cf.gsub('.coffee', '.js')}", 'w' do |f|
+        #   f.puts js
+        # end
       end
     end
 
