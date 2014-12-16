@@ -8,7 +8,7 @@ gem 'sass'
 gem 'therubyracer'
 gem 'coffee-script'
 group :development do
-  gem 'byebug'
-  gem 'guard-coffeescript'
-  gem 'guard-sass'
+  gem 'rb-readline'
+  gem 'guard'
+  gem 'guard-rake'
 end

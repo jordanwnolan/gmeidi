@@ -75,6 +75,7 @@ namespace :assets do
   task :dev_assets do
     javascripts = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
     css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
+    scss = "#{File.dirname(__FILE__)}/app/assets/stylesheets/scss/"
 
     Dir.foreach(javascripts) do |file|
       unless file == '.' || file == '..' || File.directory?("#{javascripts}#{file}")
@@ -87,9 +88,18 @@ namespace :assets do
 
     Dir.foreach(css) do |file|
       unless file == '.' || file == '..' || File.directory?("#{css}#{file}")
-        css = File.read("#{css}#{file}")
-        open "#{File.dirname(__FILE__)}/public/css/#{file}", "w" do |f|
-          f.puts css
+        styles = File.read("#{css}#{file}")
+        open "#{File.dirname(__FILE__)}/public/stylesheets/#{file}", "w" do |f|
+          f.puts styles
+        end
+      end
+    end
+
+    Dir.foreach(scss) do |file|
+      unless file == '.' || file == '..' || File.directory?("#{scss}#{file}")
+        styles = File.read("#{scss}#{file}")
+        open "#{File.dirname(__FILE__)}/public/stylesheets/#{file}", "w" do |f|
+          f.puts styles
         end
       end
     end
