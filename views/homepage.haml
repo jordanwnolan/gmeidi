@@ -1,105 +1,118 @@
-%nav
-  %ul
-    %li Get Started
-    %li Run A Quote
-    %li Review Highlights
-    %li Download Application
-    %li Complete Application
-    %li All Done!
-
 %section{id: "application"}
-  %div{id: "get_started", class: "quote"}
-    %h1 Welcome!
-    %h3 You found the easiest way to secure the very best individual disability income protection after your residency or fellowship.
-    %h3 Generate a quote. 2-page app. No underwriting. Wow.
-    %button Get Started
-  %div{id: "run_a_quote", class: "quote"}
-    %form{action: "/quotes", method: "post"}
-      %ul{id: "questions", class: "questions"}
-        %li{class: "question"}
-          %label{for: "school"} School
-          %select{id: "schoole", name: "application[school]"}
-            %option{value: "ucsf"} UCSF
-            %option{value: "ucsf_fresno"} UCSF Fresno
-        %li{class: "question"}
-          %label{for: "level"} Education Level
-          %select{id: "level", name: "application[level]"}
-            %option{value: "fellow"} Fellow
-            %option{value: "final_year"} Final Year Resident
-            %option{value: "resident"} Resident - Not in Final Year
-        %li{class: "question"}
-          %label{for: "specialty"} Specialty
-          %select{id: "specialty", name: "application[specialty]"}
-            -locals[:specialties].each do |specialty|
-              %option{value: specialty.short_name}= specialty.description
-        %li{class: "question"}
-          %label{for: "age"} Age
-          %select{id: "age", name: "application[age]"}
-            - (28..52).each do |age|
-              %option{value: age}= age
-        %li{class: "question"}
-          %label{for: "email"} Email
-          %input{type: "email", placeholder: "john.doe@example.com"}
-      %div{class: "submit"}
-        %input{type: "submit", value: "Calculate Monthly Premium"}
+  %nav{class: "application-progress clearfix"}
+    %ul{class: "clearfix"}
+      %li{class: "active"}
+        %span Get Started
+      %li
+        %span Run A Quote
+      %li
+        %span Review Highlights
+      %li
+        %span Download Application
+      %li
+        %span Complete Application
+      %li
+        %span All Done!
 
-    %button{id: "5k_selection"}
-      %div{class: "plan_selection_cost"}
-        %h1 $5000
-        %h3 /month
-      %h1{id: "5k_selection_cost"} $161.72
-    %button{id: "3k_selection"}
-      %div{class: "plan_selection_cost"}
-        %h1 $3500
-        %h3 /month
-      %h1{id: "3k_selection_cost"} $112.43
-  %div{id: "review_highlights", class: "quote"}
-    %table{id: "plan_highlights_table"}
-      %thead
-        %tr
-          %th
-          %th Plan Highlights
-      %tbody
-        %tr
-          %td
-          %td{id: "plan_price"}
-        %tr
-          %td
-          %td Payable To Age 67
-        %tr
-          %td
-          %td Own Occupation Definition
-        %tr
-          %td
-          %td Specialty Protection
-        %tr
-          %td
-          %td NO UNDERWRITING
-        %tr
-          %td
-          %td Short-Form Application
-        %tr
-          %td
-          %td Partial Disability
-        %tr
-          %td
-          %td Recovery Benefits
-        %tr
-          %td
-          %td Guaranteed Renewable
-        %tr
-          %td
-          %td Future Increases
-        %tr
-          %td
-          %td Inflation Protection
-        %tr
-          %td
-          %td Guaranteed Level Premium
-        %tr
-          %td
-          %td{id: "only_x_per_month"}
-  %div{id: "download_application", class: "quote"}
-  %div{id: "complete_application", class: "quote"}
-  %div{id: "all_done", class: "quote"}
+  %div{class: "header_spacer"}
+  %div{id: "app_container"}
+    %div{id: "get_started", class: "quote"}
+      %h1{class: "welcome"} Welcome!
+      %h3 You found the easiest way to secure the very best individual disability income protection after your residency or fellowship.
+      %h3 Generate a quote. 2-page app. No underwriting. <b>Wow.</b>
+      %button{class: "big_button"}
+        %h1 Get Started
+    %div{id: "run_a_quote", class: "quote"}
+      %form{action: "/quotes", method: "post"}
+        %ol{id: "questions", class: "questions clearfix"}
+          %li{class: "question active"}
+            %label{for: "school"} School
+            %select{id: "school", name: "application[school]"}
+              %option Choose a School
+              %option{value: "ucsf"} UCSF
+              %option{value: "ucsf_fresno"} UCSF Fresno
+          %li{class: "question"}
+            %label{for: "level"} Education Level
+            %select{id: "level", name: "application[level]", disabled: "disabled"}
+              %option Choose a Level
+              %option{value: "fellow"} Fellow
+              %option{value: "final_year"} Final Year Resident
+              %option{value: "resident"} Resident - Not in Final Year
+          %li{class: "question"}
+            %label{for: "specialty"} Specialty
+            %select{id: "specialty", name: "application[specialty]", disabled: "disabled"}
+              %option Choose a Specialty
+              -locals[:specialties].each do |specialty|
+                %option{value: specialty.short_name}= specialty.description
+          %li{class: "question"}
+            %label{for: "age"} Age
+            %select{id: "age", name: "application[age]", disabled: "disabled"}
+              %option Choose an Age
+              - (28..52).each do |age|
+                %option{value: age}= age
+          %li{class: "question email"}
+            %label{for: "email"} Email
+            %input{type: "email", id: "email", placeholder: "john.doe@example.com", disabled: "disabled"}
+        %div{class: "submit"}
+          %input{type: "submit", class: "big_button disabled", value: "Calculate Monthly Premium", disabled: "disabled"}
+      %div{class: "plan_buttons clearfix"}
+        %button{id: "5k_selection", class: "big_button plan_button"}
+          %div{class: "plan_selection_cost"}
+            %h1 $5000<i>/month</i>
+            %h1 <i>to age</i> 67
+            %h1{id: "5k_selection_cost"} $161.72
+        %button{id: "3k_selection", class: "big_button plan_button"}
+          %div{class: "plan_selection_cost"}
+            %h1 $3500<i>/month</i>
+            %h1 <i>to age</i> 67
+            %h1{id: "3k_selection_cost"} $112.43
+    %div{id: "review_highlights", class: "quote"}
+      %table{id: "plan_highlights_table"}
+        %thead
+          %tr
+            %th
+            %th Plan Highlights
+        %tbody
+          %tr
+            %td
+            %td{id: "plan_price"}
+          %tr
+            %td
+            %td Payable To Age 67
+          %tr
+            %td
+            %td Own Occupation Definition
+          %tr
+            %td
+            %td Specialty Protection
+          %tr
+            %td
+            %td NO UNDERWRITING
+          %tr
+            %td
+            %td Short-Form Application
+          %tr
+            %td
+            %td Partial Disability
+          %tr
+            %td
+            %td Recovery Benefits
+          %tr
+            %td
+            %td Guaranteed Renewable
+          %tr
+            %td
+            %td Future Increases
+          %tr
+            %td
+            %td Inflation Protection
+          %tr
+            %td
+            %td Guaranteed Level Premium
+          %tr
+            %td
+            %td{id: "only_x_per_month"}
+    %div{id: "download_application", class: "quote"}
+    %div{id: "complete_application", class: "quote"}
+    %div{id: "all_done", class: "quote"}
 
