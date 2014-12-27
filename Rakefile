@@ -1,21 +1,22 @@
 require 'coffee-script'
+require 'byebug'
+require 'json'
 
 namespace :assets do
   desc "compile assets -- assets:dev will not minify and concat -- assets:prod minifies and concats"
   task :compile_js do
     source = "#{File.dirname(__FILE__)}/app/assets/javascripts/coffee/"
-    javascripts = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
+    javascripts = "#{File.dirname(__FILE__)}/public/javascripts/"
 
+    `mkdir ./javascripts`
     Dir.foreach(source) do |cf|
+      `cp #{source}#{cf} ./javascripts` unless File.directory? ("#{source}#{cf}")
       unless cf == '.' || cf == '..'
-        `coffee -o #{javascripts} -c -m #{source}#{cf}`
-        # js = CoffeeScript.compile File.read("#{source}#{cf}")
-        # open "#{javascripts}#{cf.gsub('.coffee', '.js')}", 'w' do |f|
-        #   f.puts js
-        # end
+        `coffee -c -m ./javascripts/#{cf}`
       end
     end
 
+    `mv ./javascripts ./public`
     vendors = "#{File.dirname(__FILE__)}/app/assets/javascripts/vendor/"
     Dir.foreach(vendors) do |file|
       unless file == '.' || file == '..'
@@ -44,7 +45,11 @@ namespace :assets do
     public_js = "#{File.dirname(__FILE__)}/public/javascripts/"
     public_css = "#{File.dirname(__FILE__)}/public/stylesheets/"
     public_images = "#{File.dirname(__FILE__)}/public/images/"
-    public_assets = [public_js, public_css, public_images]
+    public_assets = [public_css, public_images]
+
+    if File.exists?("#{public_js}")
+      `rm -rf #{public_js}`
+    end
 
     public_assets.each do |assets|
       Dir.foreach(assets) do |file|
@@ -77,12 +82,24 @@ namespace :assets do
     javascripts = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
     css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
     scss = "#{File.dirname(__FILE__)}/app/assets/stylesheets/scss/"
+    coffee = "#{File.dirname(__FILE__)}/app/assets/javascripts/coffee/"
 
     Dir.foreach(javascripts) do |file|
       unless file == '.' || file == '..' || File.directory?("#{javascripts}#{file}")
         js = File.read("#{javascripts}#{file}")
+        byebug
         open "#{File.dirname(__FILE__)}/public/javascripts/#{file}", "w" do |f|
           f.puts js
+        end
+      end
+    end
+
+    `mkdir ./public/javascripts/coffee`
+    Dir.foreach(coffee) do |file|
+      unless file == '.' || file == '..' || File.directory?("#{coffee}#{file}")
+        cf = File.read("#{coffee}#{file}")
+        open "#{File.dirname(__FILE__)}/public/javascripts/coffee/#{file}", "w" do |f|
+          f.puts cf
         end
       end
     end

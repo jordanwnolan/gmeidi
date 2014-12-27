@@ -16,11 +16,11 @@
 
   %div{class: "header_spacer"}
   %div{id: "app_container"}
-    %div{id: "get_started", class: "quote"}
+    %div{id: "get_started", class: "quote active"}
       %h1{class: "welcome"} Welcome!
       %h3 You found the easiest way to secure the very best individual disability income protection after your residency or fellowship.
       %h3 Generate a quote. 2-page app. No underwriting. <b>Wow.</b>
-      %button{class: "big_button"}
+      %button{id: "get_started_btn", class: "big_button change_phase", data: { next_phase: "run_a_quote"}}
         %h1 Get Started
     %div{id: "run_a_quote", class: "quote"}
       %form{action: "/quotes", method: "post"}
@@ -56,12 +56,12 @@
         %div{class: "submit"}
           %input{type: "submit", class: "big_button disabled", value: "Calculate Monthly Premium", disabled: "disabled"}
       %div{class: "plan_buttons clearfix"}
-        %button{id: "5k_selection", class: "big_button plan_button"}
+        %button{id: "5k_selection", class: "big_button plan_button change_phase", data: { next_phase: "review_highlights"}}
           %div{class: "plan_selection_cost"}
             %h1 $5000<i>/month</i>
             %h1 <i>to age</i> 67
             %h1{id: "5k_selection_cost"} $161.72
-        %button{id: "3k_selection", class: "big_button plan_button"}
+        %button{id: "3k_selection", class: "big_button plan_button change_phase", data: { next_phase: "review_highlights"}}
           %div{class: "plan_selection_cost"}
             %h1 $3500<i>/month</i>
             %h1 <i>to age</i> 67

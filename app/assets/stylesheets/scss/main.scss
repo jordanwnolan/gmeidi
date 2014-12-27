@@ -69,6 +69,14 @@ select, option {
 }
 
 #application {
+  .quote {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+
   width: 90%;
   max-width: 902px;
   min-width: 320px;
