@@ -1,0 +1,321 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+$primary-blue: #125caf;
+$hover-blue: #347ecf;
+$highlight-blue: #8eb6dc;
+$grey-text: #474747;
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, select, option,input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+  font-family: sans-serif;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+select, option {
+  background-color: transparent;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+#application {
+  .quote {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+
+
+  width: 90%;
+  max-width: 902px;
+  min-width: 320px;
+  margin: 0 auto;
+  color: $grey-text;
+  .header_spacer{
+    height: 35px;
+  }
+
+  .application-progress {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $primary-blue;
+    z-index: 10000;
+    ul {
+      width: 100%;
+      max-width: 904px;
+      margin: 0 auto;
+      background-color: white;
+      li {
+        display: table;
+        height: 2.2em;
+        float: left;
+        width: 16.66%;
+        max-width: 150px;
+        text-align: center;
+        vertical-align: middle;
+        color: $highlight-blue;
+        background: transparent;
+        font-weight: bold;
+
+        &.active {
+          background: $primary-blue;
+          color: white;
+        }
+        span {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  #app_container {
+    width: 90%;
+    margin: 0 auto;
+
+    .quote {
+      padding: 30px;
+    }
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-size: 26px;
+    padding: 20px;
+    b {
+      font-weight: bold;
+    }
+  }
+
+  #get_started {
+    text-align: center;
+    h1 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 60px;
+    }
+    h1.welcome {
+      margin-top: 0;
+    }
+    h3 {
+      /*margin: 1.2em auto;*/
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+    .big_button {
+      margin: 20px auto;
+      display: block;
+        h1 {
+          margin-top: inherit;
+          margin-bottom: inherit;
+          font-size: 40px;
+        }
+      }
+    }
+
+    .big_button {
+      padding: 20px;
+      background-color: $primary-blue;
+      color: white;
+      border-radius: 3px;
+      border: none;
+      &.disabled {
+        opacity: 0.3;
+      }
+
+      &.disabled:hover {
+        cursor: default;
+        background-color: $primary-blue;
+      }
+
+    }
+
+    .big_button:hover {
+      cursor: pointer;
+      background: $hover-blue
+    }
+
+  .plan_selection_cost {
+    i {
+      font-size: 20px;
+    }
+  }
+
+  #run_a_quote {
+
+
+
+
+
+    .question {
+      width: 50%;
+      display: block;
+      float: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      opacity: 0.3;
+
+      .screen {
+        width: 100%;
+        height: 100%;
+        display: block;
+        content: '';
+      }
+
+      &.submit {
+        float: none;
+        margin: 20px auto;
+      }
+
+      &.active {
+        opacity: 1;
+        .screen {
+          display: none;
+        }
+      }
+
+      label {
+        clear: both;
+        display: block;
+        font-size: 36px;
+        color: $grey-text;
+        font-weight: bold;
+      }
+
+      select {
+        position: relative;
+        left: -8px;
+        color: $primary-blue;
+        font-size: 24px;
+        font-weight: bold;
+        width: 294px;
+        &.active:hover {
+          cursor: pointer;
+        }
+      }
+
+      &.email {
+        width: 100%;
+
+        input {
+          color: $primary-blue;
+          font-size: 24px;
+          font-weight: bold;
+          padding: 5px;
+        }
+      }
+
+    }
+
+
+
+    input[type="submit"] {
+      font-size: 40px;
+      font-weight: bold;
+      text-align: center;
+      width: 240px;
+      display: block;
+      margin: 10px auto;
+      white-space: normal;
+      line-height: 1.3em;
+    }
+
+
+    ol {
+      list-style-type: decimal;
+    }
+
+    .plan_buttons {
+      display: none;
+      max-width: 500px;
+      margin: 0 auto;
+
+      &.active {
+        display: block;
+      }
+
+      .big_button {
+        margin: 0 2.5%;
+        float: right;
+        &:first-child {
+          float: left;
+        }
+      }
+
+    }
+
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #application{
+    #run_a_quote {
+      .plan_buttons {
+        max-width: 220px;
+        margin: 0 auto;
+        .big_button {
+          margin: 10px auto;
+          float: none;
+        }
+
+      }
+    }
+  }
+}

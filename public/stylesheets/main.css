@@ -1,0 +1,224 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video, select, option, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Open Sans', sans-serif; }
+
+html, body {
+  height: 100%;
+  padding: 0; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1;
+  font-family: sans-serif; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+select, option {
+  background-color: transparent; }
+
+.clearfix:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both; }
+
+#application {
+  width: 90%;
+  max-width: 902px;
+  min-width: 320px;
+  margin: 0 auto;
+  color: #474747; }
+  #application .quote {
+    display: none; }
+    #application .quote.active {
+      display: block; }
+  #application .header_spacer {
+    height: 35px; }
+  #application .application-progress {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #125caf;
+    z-index: 10000; }
+    #application .application-progress ul {
+      width: 100%;
+      max-width: 904px;
+      margin: 0 auto;
+      background-color: white; }
+      #application .application-progress ul li {
+        display: table;
+        height: 2.2em;
+        float: left;
+        width: 16.66%;
+        max-width: 150px;
+        text-align: center;
+        vertical-align: middle;
+        color: #8eb6dc;
+        background: transparent;
+        font-weight: bold; }
+        #application .application-progress ul li.active {
+          background: #125caf;
+          color: white; }
+        #application .application-progress ul li span {
+          display: table-cell;
+          vertical-align: middle; }
+  #application #app_container {
+    width: 90%;
+    margin: 0 auto; }
+    #application #app_container .quote {
+      padding: 30px; }
+  #application h1 {
+    font-size: 36px;
+    font-weight: bold; }
+  #application h3 {
+    font-size: 26px;
+    padding: 20px; }
+    #application h3 b {
+      font-weight: bold; }
+  #application #get_started {
+    text-align: center; }
+    #application #get_started h1 {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 60px; }
+    #application #get_started h1.welcome {
+      margin-top: 0; }
+    #application #get_started h3 {
+      /*margin: 1.2em auto;*/
+      margin-top: 30px;
+      margin-bottom: 30px;
+      font-size: 30px; }
+    #application #get_started .big_button {
+      margin: 20px auto;
+      display: block; }
+      #application #get_started .big_button h1 {
+        margin-top: inherit;
+        margin-bottom: inherit;
+        font-size: 40px; }
+  #application .big_button {
+    padding: 20px;
+    background-color: #125caf;
+    color: white;
+    border-radius: 3px;
+    border: none; }
+    #application .big_button.disabled {
+      opacity: 0.3; }
+    #application .big_button.disabled:hover {
+      cursor: default;
+      background-color: #125caf; }
+  #application .big_button:hover {
+    cursor: pointer;
+    background: #347ecf; }
+  #application .plan_selection_cost i {
+    font-size: 20px; }
+  #application #run_a_quote .question {
+    width: 50%;
+    display: block;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 0.3; }
+    #application #run_a_quote .question .screen {
+      width: 100%;
+      height: 100%;
+      display: block;
+      content: ''; }
+    #application #run_a_quote .question.submit {
+      float: none;
+      margin: 20px auto; }
+    #application #run_a_quote .question.active {
+      opacity: 1; }
+      #application #run_a_quote .question.active .screen {
+        display: none; }
+    #application #run_a_quote .question label {
+      clear: both;
+      display: block;
+      font-size: 36px;
+      color: #474747;
+      font-weight: bold; }
+    #application #run_a_quote .question select {
+      position: relative;
+      left: -8px;
+      color: #125caf;
+      font-size: 24px;
+      font-weight: bold;
+      width: 294px; }
+      #application #run_a_quote .question select.active:hover {
+        cursor: pointer; }
+    #application #run_a_quote .question.email {
+      width: 100%; }
+      #application #run_a_quote .question.email input {
+        color: #125caf;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 5px; }
+  #application #run_a_quote input[type="submit"] {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    width: 240px;
+    display: block;
+    margin: 10px auto;
+    white-space: normal;
+    line-height: 1.3em; }
+  #application #run_a_quote ol {
+    list-style-type: decimal; }
+  #application #run_a_quote .plan_buttons {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto; }
+    #application #run_a_quote .plan_buttons.active {
+      display: block; }
+    #application #run_a_quote .plan_buttons .big_button {
+      margin: 0 2.5%;
+      float: right; }
+      #application #run_a_quote .plan_buttons .big_button:first-child {
+        float: left; }
+
+@media screen and (max-width: 700px) {
+  #application #run_a_quote .plan_buttons {
+    max-width: 220px;
+    margin: 0 auto; }
+    #application #run_a_quote .plan_buttons .big_button {
+      margin: 10px auto;
+      float: none; } }
+
+/*# sourceMappingURL=main.css.map */

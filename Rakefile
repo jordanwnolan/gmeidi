@@ -12,7 +12,11 @@ namespace :assets do
     Dir.foreach(source) do |cf|
       `cp #{source}#{cf} ./javascripts` unless File.directory? ("#{source}#{cf}")
       unless cf == '.' || cf == '..'
-        `coffee -c -m ./javascripts/#{cf}`
+        coffee = CoffeeScript.compile File.read("./javascripts/#{cf}")
+        open "./javascripts/#{cf.split('.').first}.js", 'w' do |f|
+          f.puts coffee
+        end
+        # `coffee -c -m ./javascripts/#{cf}`
       end
     end
 
