@@ -1,5 +1,4 @@
 require 'coffee-script'
-require 'byebug'
 require 'json'
 
 namespace :assets do
@@ -87,7 +86,6 @@ namespace :assets do
     Dir.foreach(javascripts) do |file|
       unless file == '.' || file == '..' || File.directory?("#{javascripts}#{file}")
         js = File.read("#{javascripts}#{file}")
-        byebug
         open "#{File.dirname(__FILE__)}/public/javascripts/#{file}", "w" do |f|
           f.puts js
         end
