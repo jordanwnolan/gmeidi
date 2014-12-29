@@ -1,3 +1,4 @@
+require 'therubyracer'
 require 'coffee-script'
 require 'json'
 

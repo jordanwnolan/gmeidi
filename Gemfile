@@ -7,6 +7,7 @@ gem 'haml'
 gem 'sass'
 gem 'therubyracer'
 gem 'coffee-script'
+gem 'sinatra-assetpack'
 group :development do
   gem 'rb-readline'
   gem 'guard'
