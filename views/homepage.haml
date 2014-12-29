@@ -1,17 +1,17 @@
 %section{id: "application"}
   %nav{class: "application-progress clearfix"}
     %ul{class: "clearfix"}
-      %li{class: "active"}
+      %li{class: "get_started active"}
         %span Get Started
-      %li
+      %li{class: "run_a_quote"}
         %span Run A Quote
-      %li
+      %li{class: "review_highlights"}
         %span Review Highlights
-      %li
+      %li{class: "download_application"}
         %span Download Application
-      %li
+      %li{class: "complete_application"}
         %span Complete Application
-      %li
+      %li{class: "all_done"}
         %span All Done!
 
   %div{class: "header_spacer"}
@@ -22,39 +22,39 @@
       %h3 Generate a quote. 2-page app. No underwriting. <b>Wow.</b>
       %button{id: "get_started_btn", class: "big_button change_phase", data: { next_phase: "run_a_quote"}}
         %h1 Get Started
-    %div{id: "run_a_quote", class: "quote"}
-      %form{action: "/quotes", method: "post"}
+    %div{id: "run_a_quote", class: "quote run_a_quote", data: { next_phase: "review_highlights"}}
+      %form{action: "/quotes", method: "post", id: "questions_form"}
         %ol{id: "questions", class: "questions clearfix"}
           %li{class: "question active"}
             %label{for: "school"} School
-            %select{id: "school", name: "application[school]"}
+            %select{id: "school", class: "active", name: "application[school]", data: {next_question: "level"}}
               %option Choose a School
               %option{value: "ucsf"} UCSF
               %option{value: "ucsf_fresno"} UCSF Fresno
           %li{class: "question"}
             %label{for: "level"} Education Level
-            %select{id: "level", name: "application[level]", disabled: "disabled"}
+            %select{id: "level", name: "application[level]", disabled: "disabled", data: {next_question: "specialty"}}
               %option Choose a Level
               %option{value: "fellow"} Fellow
               %option{value: "final_year"} Final Year Resident
               %option{value: "resident"} Resident - Not in Final Year
           %li{class: "question"}
             %label{for: "specialty"} Specialty
-            %select{id: "specialty", name: "application[specialty]", disabled: "disabled"}
+            %select{id: "specialty", name: "application[specialty]", disabled: "disabled", data: {next_question: "age"}}
               %option Choose a Specialty
               -locals[:specialties].each do |specialty|
                 %option{value: specialty.short_name}= specialty.description
           %li{class: "question"}
             %label{for: "age"} Age
-            %select{id: "age", name: "application[age]", disabled: "disabled"}
+            %select{id: "age", name: "application[age]", disabled: "disabled", data: {next_question: "email"}}
               %option Choose an Age
               - (28..52).each do |age|
                 %option{value: age}= age
           %li{class: "question email"}
             %label{for: "email"} Email
-            %input{type: "email", id: "email", placeholder: "john.doe@example.com", disabled: "disabled"}
-        %div{class: "submit"}
-          %input{type: "submit", class: "big_button disabled", value: "Calculate Monthly Premium", disabled: "disabled"}
+            %input{type: "email", id: "email", placeholder: "john.doe@example.com", disabled: "disabled", data: {next_question: "question_submit"}}
+        %div{class: "question submit"}
+          %input{type: "submit", id:"question_submit", class: "big_button disabled", value: "Calculate Monthly Premium", disabled: "disabled"}
       %div{class: "plan_buttons clearfix"}
         %button{id: "5k_selection", class: "big_button plan_button change_phase", data: { next_phase: "review_highlights"}}
           %div{class: "plan_selection_cost"}

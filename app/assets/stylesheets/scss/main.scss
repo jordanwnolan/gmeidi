@@ -219,6 +219,10 @@ select, option {
         content: '';
       }
 
+      &.submit {
+        float: none;
+        margin: 20px auto;
+      }
 
       &.active {
         opacity: 1;
@@ -242,6 +246,9 @@ select, option {
         font-size: 24px;
         font-weight: bold;
         width: 294px;
+        &.active:hover {
+          cursor: pointer;
+        }
       }
 
       &.email {
@@ -276,8 +283,14 @@ select, option {
     }
 
     .plan_buttons {
+      display: none;
       max-width: 500px;
       margin: 0 auto;
+
+      &.active {
+        display: block;
+      }
+
       .big_button {
         margin: 0 2.5%;
         float: right;
