@@ -41,36 +41,43 @@ namespace :assets do
   end
 
   task :clean do
-    public_js = "#{File.dirname(__FILE__)}/public/javascripts/"
-    public_css = "#{File.dirname(__FILE__)}/public/stylesheets/"
-    public_images = "#{File.dirname(__FILE__)}/public/images/"
-    public_assets = [public_css, public_images]
+    `rm -rf ./public`
+    `mkdir ./public`
+    `mkdir ./public/javascripts`
+    `mkdir ./public/stylesheets`
+    `mkdir ./public/images`
+    # public_js = "#{File.dirname(__FILE__)}/public/javascripts/"
+    # public_css = "#{File.dirname(__FILE__)}/public/stylesheets/"
+    # public_images = "#{File.dirname(__FILE__)}/public/images/"
+    # public_assets = [public_css, public_images]
 
-    if File.exists?("#{public_js}")
-      `rm -rf #{public_js}`
-    end
+    # if File.exists?("#{public_js}")
+    #   `rm -rf #{public_js}`
+    # end
 
-    public_assets.each do |assets|
-      Dir.foreach(assets) do |file|
-        unless file == '.' || file == '..' || File.directory?("#{assets}#{file}")
-          File.delete("#{assets}#{file}")
-        end
-      end
-    end
+    # public_assets.each do |assets|
+    #   if File.exists?(assets)
+    #     Dir.foreach(assets) do |file|
+    #       unless file == '.' || file == '..' || File.directory?("#{assets}#{file}")
+    #         File.delete("#{assets}#{file}")
+    #       end
+    #     end
+    #   end
+    # end
 
-    app_js = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
-    app_css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
-    do_not_touch_files = ['application.js']
+    # app_js = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
+    # app_css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
+    # do_not_touch_files = ['application.js']
 
-    app_assets = [app_js, app_css]
+    # app_assets = [app_js, app_css]
 
-    app_assets.each do |assets|
-      Dir.foreach(assets) do |file|
-        unless file == '.' || file == '..' || do_not_touch_files.include?(file) || File.directory?("#{assets}#{file}")
-          File.delete("#{assets}#{file}")
-        end
-      end
-    end
+    # app_assets.each do |assets|
+    #   Dir.foreach(assets) do |file|
+    #     unless file == '.' || file == '..' || do_not_touch_files.include?(file) || File.directory?("#{assets}#{file}")
+    #       File.delete("#{assets}#{file}")
+    #     end
+    #   end
+    # end
   end
 
   task :uglify do
