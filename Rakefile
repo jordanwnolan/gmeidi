@@ -52,7 +52,7 @@ namespace :assets do
 
     public_assets.each do |assets|
       Dir.foreach(assets) do |file|
-        unless file == '.' || file == '..'
+        unless file == '.' || file == '..' || File.directory?("#{assets}#{file}")
           File.delete("#{assets}#{file}")
         end
       end
