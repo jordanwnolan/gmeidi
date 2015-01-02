@@ -76,6 +76,25 @@ select, option {
     }
   }
 
+    .plan_buttons {
+      display: none;
+      max-width: 500px;
+      margin: 0 auto;
+
+      &.active {
+        display: block;
+      }
+
+      .big_button {
+        margin: 0 2.5%;
+        float: right;
+        &:first-child {
+          float: left;
+        }
+      }
+
+    }
+
 
   width: 90%;
   max-width: 902px;
@@ -301,6 +320,62 @@ select, option {
 
     }
 
+  }
+
+  #review_highlights {
+    &.quote {
+      padding-top: 0;
+    }
+
+    .header {
+      margin: 20px auto;
+      text-align: center;
+      display: block;
+    }
+    #plan_highlights {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+    #plan_highlights_table {
+      width: 80%;
+      margin: 0 auto;
+      td {
+        width: 50%;
+        border: 1px solid black;
+        vertical-align: middle;
+        margin-left: 20px;
+        .checkmark {
+          display: block;
+          width: 30px;
+          height: 30px;
+          margin-left: auto;
+          margin-right: auto;
+          /*margin: 5px auto;*/
+        }
+      }
+    }
+
+    .plan_buttons {
+      display: block;
+    }
+
+    .big_button {
+      margin: 30px auto;
+      display: block;
+      h1 {
+        width: 100%;
+        i {
+          font-size: 20px;
+        }
+      }
+
+      h3 {
+        padding: 0;
+      }
+    }
   }
 }
 

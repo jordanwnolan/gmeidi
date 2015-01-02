@@ -54,64 +54,78 @@
             %label{for: "email"} Email
             %input{type: "email", id: "email", placeholder: "john.doe@example.com", disabled: "disabled", data: {next_question: "question_submit"}}
         %div{class: "question submit"}
-          %input{type: "submit", id:"question_submit", class: "big_button disabled", value: "Calculate Monthly Premium", disabled: "disabled"}
+          %input{type: "submit", id:"question_submit", class: "big_button disabled change_phase", value: "Calculate Monthly Premium", disabled: "disabled", data: { next_phase: "review_highlights"}}
+    %div{id: "review_highlights", class: "quote"}
       %div{class: "plan_buttons clearfix"}
-        %button{id: "5k_selection", class: "big_button plan_button change_phase", data: { next_phase: "review_highlights"}}
+        %button{id: "5k_selection", class: "big_button plan_button"}
           %div{class: "plan_selection_cost"}
             %h1 $5000<i>/month</i>
             %h1 <i>to age</i> 67
             %h1{id: "5k_selection_cost"} $161.72
-        %button{id: "3k_selection", class: "big_button plan_button change_phase", data: { next_phase: "review_highlights"}}
+        %button{id: "3k_selection", class: "big_button plan_button"}
           %div{class: "plan_selection_cost"}
             %h1 $3500<i>/month</i>
             %h1 <i>to age</i> 67
             %h1{id: "3k_selection_cost"} $112.43
-    %div{id: "review_highlights", class: "quote"}
-      %table{id: "plan_highlights_table"}
-        %thead
-          %tr
-            %th
-            %th Plan Highlights
-        %tbody
-          %tr
-            %td
-            %td{id: "plan_price"}
-          %tr
-            %td
-            %td Payable To Age 67
-          %tr
-            %td
-            %td Own Occupation Definition
-          %tr
-            %td
-            %td Specialty Protection
-          %tr
-            %td
-            %td NO UNDERWRITING
-          %tr
-            %td
-            %td Short-Form Application
-          %tr
-            %td
-            %td Partial Disability
-          %tr
-            %td
-            %td Recovery Benefits
-          %tr
-            %td
-            %td Guaranteed Renewable
-          %tr
-            %td
-            %td Future Increases
-          %tr
-            %td
-            %td Inflation Protection
-          %tr
-            %td
-            %td Guaranteed Level Premium
-          %tr
-            %td
-            %td{id: "only_x_per_month"}
+      %div{id: "plan_highlights"}
+        %h1{class: "header"} Plan Highlights
+        %table{id: "plan_highlights_table"}
+          %thead
+          %tbody
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td{id: "plan_price"} $3500 Monthly Benefit
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td{id: "only_x_per_month"} Only $117.81 Per Month
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Payable To Age 67
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Own Occupation Definition
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Specialty Protection
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td NO UNDERWRITING
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Short-Form Application
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Partial Disability
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Recovery Benefits
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Guaranteed Renewable
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Future Increases
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Inflation Protection
+            %tr
+              %td
+                %img{class: "checkmark", src: "images/check-mark.png"}
+              %td Guaranteed Level Premium
+        %button{class: "big_button"}
+          %h1 Apply Now
     %div{id: "download_application", class: "quote"}
     %div{id: "complete_application", class: "quote"}
     %div{id: "all_done", class: "quote"}

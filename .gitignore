@@ -1,4 +1,5 @@
 **/.sass-cache
+**/app/assets/images/*
 **/app/assets/javascripts/*.js
 **/app/assets/stylesheets/*.css
 **/app/assets/javascripts/*.map

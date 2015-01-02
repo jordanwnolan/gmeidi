@@ -69,6 +69,17 @@ select, option {
     display: none; }
     #application .quote.active {
       display: block; }
+  #application .plan_buttons {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto; }
+    #application .plan_buttons.active {
+      display: block; }
+    #application .plan_buttons .big_button {
+      margin: 0 2.5%;
+      float: right; }
+      #application .plan_buttons .big_button:first-child {
+        float: left; }
   #application .header_spacer {
     height: 35px; }
   #application .application-progress {
@@ -212,6 +223,42 @@ select, option {
       float: right; }
       #application #run_a_quote .plan_buttons .big_button:first-child {
         float: left; }
+  #application #review_highlights.quote {
+    padding-top: 0; }
+  #application #review_highlights .header {
+    margin: 20px auto;
+    text-align: center;
+    display: block; }
+  #application #review_highlights #plan_highlights {
+    display: none; }
+    #application #review_highlights #plan_highlights.active {
+      display: block; }
+  #application #review_highlights #plan_highlights_table {
+    width: 80%;
+    margin: 0 auto; }
+    #application #review_highlights #plan_highlights_table td {
+      width: 50%;
+      border: 1px solid black;
+      vertical-align: middle;
+      margin-left: 20px; }
+      #application #review_highlights #plan_highlights_table td .checkmark {
+        display: block;
+        width: 30px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        /*margin: 5px auto;*/ }
+  #application #review_highlights .plan_buttons {
+    display: block; }
+  #application #review_highlights .big_button {
+    margin: 30px auto;
+    display: block; }
+    #application #review_highlights .big_button h1 {
+      width: 100%; }
+      #application #review_highlights .big_button h1 i {
+        font-size: 20px; }
+    #application #review_highlights .big_button h3 {
+      padding: 0; }
 
 @media screen and (max-width: 700px) {
   #application #run_a_quote .plan_buttons {

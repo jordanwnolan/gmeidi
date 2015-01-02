@@ -12,11 +12,11 @@ namespace :assets do
     Dir.foreach(source) do |cf|
       `cp #{source}#{cf} ./javascripts` unless File.directory? ("#{source}#{cf}")
       unless cf == '.' || cf == '..'
-        coffee = CoffeeScript.compile File.read("./javascripts/#{cf}")
-        open "./javascripts/#{cf.split('.').first}.js", 'w' do |f|
-          f.puts coffee
-        end
-        # `coffee -c -m ./javascripts/#{cf}`
+        # coffee = CoffeeScript.compile File.read("./javascripts/#{cf}")
+        # open "./javascripts/#{cf.split('.').first}.js", 'w' do |f|
+        #   f.puts coffee
+        # end
+        `coffee -c -m ./javascripts/#{cf}`
       end
     end
 
@@ -51,42 +51,14 @@ namespace :assets do
     `mkdir ./public/javascripts`
     `mkdir ./public/stylesheets`
     `mkdir ./public/images`
-    # public_js = "#{File.dirname(__FILE__)}/public/javascripts/"
-    # public_css = "#{File.dirname(__FILE__)}/public/stylesheets/"
-    # public_images = "#{File.dirname(__FILE__)}/public/images/"
-    # public_assets = [public_css, public_images]
-
-    # if File.exists?("#{public_js}")
-    #   `rm -rf #{public_js}`
-    # end
-
-    # public_assets.each do |assets|
-    #   if File.exists?(assets)
-    #     Dir.foreach(assets) do |file|
-    #       unless file == '.' || file == '..' || File.directory?("#{assets}#{file}")
-    #         File.delete("#{assets}#{file}")
-    #       end
-    #     end
-    #   end
-    # end
-
-    # app_js = "#{File.dirname(__FILE__)}/app/assets/javascripts/"
-    # app_css = "#{File.dirname(__FILE__)}/app/assets/stylesheets/"
-    # do_not_touch_files = ['application.js']
-
-    # app_assets = [app_js, app_css]
-
-    # app_assets.each do |assets|
-    #   Dir.foreach(assets) do |file|
-    #     unless file == '.' || file == '..' || do_not_touch_files.include?(file) || File.directory?("#{assets}#{file}")
-    #       File.delete("#{assets}#{file}")
-    #     end
-    #   end
-    # end
   end
 
   task :uglify do
 
+  end
+
+  task :move_images do
+    `cp ./app/assets/images/* ./public/images`
   end
 
   task :dev_assets do
@@ -133,10 +105,10 @@ namespace :assets do
     end
   end
 
-  task dev: [:clean, :compile_js, :compile_css, :dev_assets] do
+  task dev: [:clean, :compile_js, :compile_css, :move_images, :dev_assets] do
 
   end
 
-  task prod: [:clean, :compile_js, :compile_css, :uglify] do
+  task prod: [:clean, :compile_js, :compile_css, :move_images, :uglify] do
   end
 end

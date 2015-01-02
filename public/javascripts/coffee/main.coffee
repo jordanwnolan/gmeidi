@@ -12,11 +12,13 @@ bindClickHandlers = () ->
   nextPhaseHandlers()
   nextQuestionHandlers()
   questionSubmitHandler()
+  showPlanHandler()
 
 nextPhaseHandlers = () ->
   $(".change_phase").on "click", (event) ->
     next_phase = $(event.currentTarget).data("next-phase")
     $("." + next_phase).addClass("active")
+    $(".quote").css("visibility", "")
     $("#" + $("#" + next_phase).data("next-phase")).css({ "visibility": "hidden" }).addClass("active")
     $("body").animate({
       scrollTop: $("#" + next_phase).offset().top
@@ -30,6 +32,7 @@ nextQuestionHandlers = () ->
     question.removeAttr("disabled")
     question.attr("enabled", "enabled")
     question.parent(".question").addClass("active")
+
   $("#email").on "input", (event) ->
     submit = $("#question_submit")
     submit.removeAttr("disabled")
@@ -55,5 +58,11 @@ quoteSuccessHandler = (data) ->
   data = JSON.parse(data)
   $("#5k_selection_cost").html("$" + data['amounts'][1])
   $("#3k_selection_cost").html("$" + data['amounts'][0])
-  $("#question_submit").hide()
-  $(".plan_buttons").show()
+
+showPlanHandler = () ->
+  $(".plan_button").on "click", (event) ->
+    event.preventDefault()
+    $("#plan_highlights").addClass("active")
+    $("body").animate({
+      scrollTop: $("#review_highlights").offset().top - 50
+    })
