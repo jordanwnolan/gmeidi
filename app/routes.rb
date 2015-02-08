@@ -2,8 +2,8 @@ require_relative '../config/constants'
 require_relative '../app'
 require_relative '../app/models/specialty'
 require_relative '../app/models/quote'
-require_relative '../app/models/mailer'
 require_relative '../app/models/application_request'
+require_relative '../app/models/mailer'
 require 'json'
 
 module Sinatra
