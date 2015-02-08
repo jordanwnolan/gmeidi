@@ -18,6 +18,7 @@ end
     set :haml,    { :format => :html5 }
 
     if production?
+      p "PRODUCTION!!"
       ActionMailer::Base.smtp_settings = {
         :address => "smtp.sendgrid.net",
         :port => '25',
@@ -26,6 +27,7 @@ end
         :password => ENV['SENDGRID_PASSWORD']
       }
       ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, 'views')
+      p ActionMailer::Base
     else
       ActionMailer::Base.delivery_method = :file
       ActionMailer::Base.file_settings = { :location => File.join(Sinatra::Application.root, 'tmp/emails') }
