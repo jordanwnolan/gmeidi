@@ -56,4 +56,15 @@ module Constants
     5000 => 1
   }
   PROFESSION_LEVEL_OFFSET = 2
+
+  EDUCATION_LEVELS = {
+    fellow: "Fellow",
+    final_year: "Final Year Resident",
+    resident: "Resident - Not in Final Year"
+  }
+
+  SCHOOLS = {
+    ucsf: "UCSF",
+    ucsf_fresno: "UCSF Fresno"
+  }
 end

@@ -8,6 +8,8 @@ gem 'sass'
 gem 'therubyracer'
 gem 'coffee-script'
 gem 'sinatra-assetpack'
+gem 'actionmailer'
+
 group :development do
   gem 'rb-readline'
   gem 'guard'

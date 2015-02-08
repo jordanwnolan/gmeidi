@@ -4,3 +4,4 @@
 **/app/assets/stylesheets/*.css
 **/app/assets/javascripts/*.map
 **/app/assets/stylesheets/*.map
+**/tmp/*

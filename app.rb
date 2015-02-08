@@ -4,11 +4,14 @@ require "sinatra/base"
 require "sinatra/json"
 require 'sprockets'
 require './app/routes'
+require 'action_mailer'
 # require 'sinatra/assetpack'
 
 class GMEIDIApplication < Sinatra::Base
   helpers Sinatra::JSON
   register Sinatra::GMEIDI::Routing
+
+
 
   # register Sinatra::AssetPack
 

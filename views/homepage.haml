@@ -52,17 +52,17 @@
                 %option{value: age}= age
           %li{class: "question email"}
             %label{for: "email"} Email
-            %input{type: "email", id: "email", placeholder: "john.doe@example.com", disabled: "disabled", data: {next_question: "question_submit"}}
+            %input{type: "email", id: "email", name: "application[email]", placeholder: "john.doe@example.com", disabled: "disabled", data: {next_question: "question_submit"}}
         %div{class: "question submit"}
           %input{type: "submit", id:"question_submit", class: "big_button disabled change_phase", value: "Calculate Monthly Premium", disabled: "disabled", data: { next_phase: "review_highlights"}}
     %div{id: "review_highlights", class: "quote"}
       %div{class: "plan_buttons clearfix"}
-        %button{id: "5k_selection", class: "big_button plan_button"}
+        %button{id: "5k_selection", class: "big_button plan_button", data: {plan_level: "5000"}}
           %div{class: "plan_selection_cost"}
             %h1 $5000<i>/month</i>
             %h1 <i>to age</i> 67
             %h1{id: "5k_selection_cost"} $161.72
-        %button{id: "3k_selection", class: "big_button plan_button"}
+        %button{id: "3k_selection", class: "big_button plan_button", data: {plan_level: "3500"}}
           %div{class: "plan_selection_cost"}
             %h1 $3500<i>/month</i>
             %h1 <i>to age</i> 67
@@ -79,7 +79,7 @@
             %tr
               %td
                 %img{class: "checkmark", src: "images/check-mark.svg"}
-              %td{id: "only_x_per_month"} Only $117.81 Per Month
+              %td{id: "only_x_per_month"} Only <i>111</i> Per Month
             %tr
               %td
                 %img{class: "checkmark", src: "images/check-mark.svg"}
@@ -124,8 +124,8 @@
               %td
                 %img{class: "checkmark", src: "images/check-mark.svg"}
               %td Guaranteed Level Premium
-        %button{class: "big_button"}
-          %h1 Apply Now
+        %button{id: "request_application", class: "big_button"}
+          %h1 Request Application
     %div{id: "download_application", class: "quote"}
     %div{id: "complete_application", class: "quote"}
     %div{id: "all_done", class: "quote"}
