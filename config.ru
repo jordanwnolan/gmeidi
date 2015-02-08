@@ -23,8 +23,7 @@ end
         :port => '25',
         :authentication => :plain,
         :user_name => ENV['SENDGRID_USERNAME'],
-        :password => ENV['SENDGRID_PASSWORD'],
-        :domain => ENV['SENDGRID_DOMAIN'],
+        :password => ENV['SENDGRID_PASSWORD']
       }
       ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, 'views')
     else
