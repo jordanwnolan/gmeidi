@@ -8,7 +8,7 @@ class Mailer < ActionMailer::Base
     mail(
       :to      => "jordanwn@gmail.com",
       :from    => "jordanwn@gmail.com",
-      :subject => "Test") do |format|
+      :subject => "New Application Request") do |format|
         format.html
     end
   end
