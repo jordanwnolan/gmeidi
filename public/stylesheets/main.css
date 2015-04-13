@@ -65,6 +65,8 @@ select, option {
   min-width: 320px;
   margin: 0 auto;
   color: #474747; }
+  #application .center {
+    text-align: center; }
   #application .quote {
     display: none; }
     #application .quote.active {
@@ -231,6 +233,9 @@ select, option {
     display: block; }
   #application #review_highlights #plan_highlights {
     display: none; }
+    #application #review_highlights #plan_highlights i {
+      font-weight: bold;
+      color: #125caf; }
     #application #review_highlights #plan_highlights.active {
       display: block; }
   #application #review_highlights #plan_highlights_table {

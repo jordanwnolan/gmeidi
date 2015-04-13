@@ -51,9 +51,8 @@ questionSubmitHandler = () ->
       data: form.serialize(),
       success: quoteSuccessHandler,
       error: (err) ->
-        console.log(err)
+        console.log("Oops")
     })
-    console.log(event)
 
 quoteSuccessHandler = (data) ->
   data = JSON.parse(data)
@@ -70,7 +69,7 @@ showPlanHandler = () ->
     $("body").animate({
       scrollTop: $("#review_highlights").offset().top - 50
     })
-    $("#only_x_per_month i").html("$" + target.attr("plan-price"))
+    $("#only_x_per_month i").html("$" + target.data("plan-price"))
     $("#request_application").attr("data-plan-selected", target.data("plan-level"))
     $("#request_application").attr("data-plan-price", target.data("plan-price"))
 

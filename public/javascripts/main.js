@@ -62,16 +62,15 @@
       var form;
       event.preventDefault();
       form = $(event.currentTarget);
-      $.ajax({
+      return $.ajax({
         url: form.attr("action"),
         method: "POST",
         data: form.serialize(),
         success: quoteSuccessHandler,
         error: function(err) {
-          return console.log(err);
+          return console.log("Oops");
         }
       });
-      return console.log(event);
     });
   };
 
@@ -92,7 +91,7 @@
       $("body").animate({
         scrollTop: $("#review_highlights").offset().top - 50
       });
-      $("#only_x_per_month i").html("$" + target.attr("plan-price"));
+      $("#only_x_per_month i").html("$" + target.data("plan-price"));
       $("#request_application").attr("data-plan-selected", target.data("plan-level"));
       return $("#request_application").attr("data-plan-price", target.data("plan-price"));
     });

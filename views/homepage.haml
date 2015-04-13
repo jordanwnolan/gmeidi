@@ -57,12 +57,12 @@
           %input{type: "submit", id:"question_submit", class: "big_button disabled change_phase", value: "Calculate Monthly Premium", disabled: "disabled", data: { next_phase: "review_highlights"}}
     %div{id: "review_highlights", class: "quote"}
       %div{class: "plan_buttons clearfix"}
-        %button{id: "5k_selection", class: "big_button plan_button", data: {plan_level: "5000"}}
+        %button{id: "5k_selection", class: "big_button plan_button change_phase", data: {plan_level: "5000", next_phase: "plan_highlights"}}
           %div{class: "plan_selection_cost"}
             %h1 $5000<i>/month</i>
             %h1 <i>to age</i> 67
             %h1{id: "5k_selection_cost"} $161.72
-        %button{id: "3k_selection", class: "big_button plan_button", data: {plan_level: "3500"}}
+        %button{id: "3k_selection", class: "big_button plan_button change_phase", data: {plan_level: "3500", next_phase: "plan_highlights"}}
           %div{class: "plan_selection_cost"}
             %h1 $3500<i>/month</i>
             %h1 <i>to age</i> 67
@@ -124,6 +124,8 @@
               %td
                 %img{class: "checkmark", src: "images/check-mark.svg"}
               %td Guaranteed Level Premium
+        %h3.center
+          If you would like for one of our agents to reach out to you with an application, please click the <i>Request Application</i> button below.
         %button{id: "request_application", class: "big_button"}
           %h1 Request Application
     %div{id: "download_application", class: "quote"}

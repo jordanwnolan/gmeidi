@@ -69,6 +69,9 @@ select, option {
 }
 
 #application {
+  .center {
+    text-align: center;
+  }
   .quote {
     display: none;
     &.active {
@@ -76,24 +79,24 @@ select, option {
     }
   }
 
-    .plan_buttons {
-      display: none;
-      max-width: 500px;
-      margin: 0 auto;
+  .plan_buttons {
+    display: none;
+    max-width: 500px;
+    margin: 0 auto;
 
-      &.active {
-        display: block;
-      }
-
-      .big_button {
-        margin: 0 2.5%;
-        float: right;
-        &:first-child {
-          float: left;
-        }
-      }
-
+    &.active {
+      display: block;
     }
+
+    .big_button {
+      margin: 0 2.5%;
+      float: right;
+      &:first-child {
+        float: left;
+      }
+    }
+
+  }
 
 
   width: 90%;
@@ -219,10 +222,6 @@ select, option {
 
   #run_a_quote {
 
-
-
-
-
     .question {
       width: 50%;
       display: block;
@@ -283,8 +282,6 @@ select, option {
 
     }
 
-
-
     input[type="submit"] {
       font-size: 40px;
       font-weight: bold;
@@ -335,6 +332,10 @@ select, option {
     #plan_highlights {
       display: none;
 
+      i {
+        font-weight: bold;
+        color: $primary-blue;
+      }
       &.active {
         display: block;
       }
