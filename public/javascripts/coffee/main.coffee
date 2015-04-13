@@ -4,9 +4,13 @@ $(document).ready ->
 bindHandlers = () ->
   handlers = [
     bindClickHandlers
+    bindScrollHandlers
   ]
 
   handlers.map((func) -> func())
+
+bindScrollHandlers = () ->
+
 
 bindClickHandlers = () ->
   nextPhaseHandlers()
@@ -75,21 +79,25 @@ showPlanHandler = () ->
 
 requestApplicationHandler = () ->
   $("#request_application").on "click", (event) ->
-    target = $(event.currentTarget)
-    application = $("#questions_form")
-    application.append("<input type='hidden' name='application[plan_selected]' value='#{target.data("plan-selected")}'>")
-    application.append("<input type='hidden' name='application[plan_price]' value='#{target.data("plan-price")}'>")
+    unless $("#request_application").hasClass("disabled")
+      $(".application-progress .request_application").addClass("active")
+      target = $(event.currentTarget)
+      application = $("#questions_form")
+      application.append("<input type='hidden' name='application[plan_selected]' value='#{target.data("plan-selected")}'>")
+      application.append("<input type='hidden' name='application[plan_price]' value='#{target.data("plan-price")}'>")
 
-    data = $("#questions_form").serialize()
-    console.log(data)
-    $.ajax(
-      url: "/request_application"
-      method: "POST"
-      data: data
-      success: applicationRequested
-      error: (err) ->
-        console.log(err)
+      data = $("#questions_form").serialize()
+      console.log(data)
+      $.ajax(
+        url: "/request_application"
+        method: "POST"
+        data: data
+        success: applicationRequested
+        error: (err) ->
+          console.log(err)
     )
 
 applicationRequested = () ->
+  $("#request_application").attr("disabled", "disabled")
+  $("#request_application").addClass("disabled")
   

@@ -98,6 +98,10 @@ select, option {
 
   }
 
+  #request_application.disabled {
+    opacity: 0.3;
+  }
+
 
   width: 90%;
   max-width: 902px;
@@ -117,15 +121,14 @@ select, option {
     z-index: 10000;
     ul {
       width: 100%;
-      max-width: 904px;
+      max-width: 900px;
       margin: 0 auto;
       background-color: white;
       li {
         display: table;
         height: 2.2em;
         float: left;
-        width: 16.66%;
-        max-width: 150px;
+        width: 20%;
         text-align: center;
         vertical-align: middle;
         color: $highlight-blue;
@@ -148,6 +151,11 @@ select, option {
     width: 90%;
     margin: 0 auto;
 
+    #all_done.quote {
+      padding-top: 300px;
+      padding-bottom: 400px;
+    }
+
     .quote {
       padding: 30px;
     }
@@ -155,11 +163,13 @@ select, option {
   h1 {
     font-size: 36px;
     font-weight: bold;
+    line-height: 1.2;
   }
 
   h3 {
     font-size: 26px;
     padding: 20px;
+    line-height: 1.2;
     b {
       font-weight: bold;
     }
@@ -377,6 +387,10 @@ select, option {
         padding: 0;
       }
     }
+  }
+
+  #all_done {
+    padding-bottom: 200px;
   }
 }
 

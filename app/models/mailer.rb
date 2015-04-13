@@ -6,8 +6,8 @@ class Mailer < ActionMailer::Base
     @app = app_data
     p @app
     mail(
-      :to      => "jordanwn@gmail.com",
-      :from    => "jordanwn@gmail.com",
+      :to      => "maxwell@di-ltc.com,patrick@di-ltc.com",
+      :from    => "gmeidiapp@gmail.com",
       :subject => "New Application Request") do |format|
         format.html
     end

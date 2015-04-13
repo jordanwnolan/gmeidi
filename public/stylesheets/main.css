@@ -82,6 +82,8 @@ select, option {
       float: right; }
       #application .plan_buttons .big_button:first-child {
         float: left; }
+  #application #request_application.disabled {
+    opacity: 0.3; }
   #application .header_spacer {
     height: 35px; }
   #application .application-progress {
@@ -93,15 +95,14 @@ select, option {
     z-index: 10000; }
     #application .application-progress ul {
       width: 100%;
-      max-width: 904px;
+      max-width: 900px;
       margin: 0 auto;
       background-color: white; }
       #application .application-progress ul li {
         display: table;
         height: 2.2em;
         float: left;
-        width: 16.66%;
-        max-width: 150px;
+        width: 20%;
         text-align: center;
         vertical-align: middle;
         color: #8eb6dc;
@@ -116,14 +117,19 @@ select, option {
   #application #app_container {
     width: 90%;
     margin: 0 auto; }
+    #application #app_container #all_done.quote {
+      padding-top: 300px;
+      padding-bottom: 400px; }
     #application #app_container .quote {
       padding: 30px; }
   #application h1 {
     font-size: 36px;
-    font-weight: bold; }
+    font-weight: bold;
+    line-height: 1.2; }
   #application h3 {
     font-size: 26px;
-    padding: 20px; }
+    padding: 20px;
+    line-height: 1.2; }
     #application h3 b {
       font-weight: bold; }
   #application #get_started {
@@ -264,6 +270,8 @@ select, option {
         font-size: 20px; }
     #application #review_highlights .big_button h3 {
       padding: 0; }
+  #application #all_done {
+    padding-bottom: 200px; }
 
 @media screen and (max-width: 700px) {
   #application #run_a_quote .plan_buttons {
