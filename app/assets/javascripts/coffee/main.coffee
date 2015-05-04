@@ -60,19 +60,36 @@ questionSubmitHandler = () ->
 
 quoteSuccessHandler = (data) ->
   data = JSON.parse(data)
-  $("#5k_selection_cost").html("$" + data['amounts'][1])
-  $("#5k_selection").attr("data-plan-price", data['amounts'][1])
-  $("#3k_selection_cost").html("$" + data['amounts'][0])
-  $("#3k_selection").attr("data-plan-price", data['amounts'][0])
+  data['amounts'] = data['amounts'].map((num) -> Number(num).toFixed(2))
+  if data['amounts'].length == 1
+    finalYearQuoteSuccess(data)
+  else
+    $(".plan_buttons").html(TEMPLATES['button']({n: 5, 'plan-level': 5000}))
+    $(".plan_buttons").append(TEMPLATES['button']({n: 3, 'plan-level': 3500}))
+    $("#5k_selection_cost").html("$" + data['amounts'][1])
+    $("#5k_selection").attr("data-plan-price", data['amounts'][1])
+    $("#3k_selection_cost").html("$" + data['amounts'][0])
+    $("#3k_selection").attr("data-plan-price", data['amounts'][0])
+
+finalYearQuoteSuccess = (data) ->
+  $(".plan_buttons").html(TEMPLATES['button']({n: 2, 'plan-level': 2000}))
+  el = $("#2k_selection")
+  $("#2k_selection_cost").html("$" + data['amounts'][0])
+  el.css({float: "none"}).attr("data-plan-price", data['amounts'][0])
 
 showPlanHandler = () ->
-  $(".plan_button").on "click", (event) ->
-    target = $(event.currentTarget)
+  $(".plan_buttons").delegate(".plan_button").on "click", (event) ->
+    target = $(event.target).closest("button")
     event.preventDefault()
     $("#plan_highlights").addClass("active")
     $("body").animate({
       scrollTop: $("#review_highlights").offset().top - 50
     })
+    $("#plan_price i").html(target.data("plan-level"))
+    if target.data("plan-level") == 2000
+      $("#future_increases").attr("src", "images/red_X.svg")
+    else
+      $("#future_increases").attr("src", "images/check-mark.svg")
     $("#only_x_per_month i").html("$" + target.data("plan-price"))
     $("#request_application").attr("data-plan-selected", target.data("plan-level"))
     $("#request_application").attr("data-plan-price", target.data("plan-price"))
@@ -100,4 +117,15 @@ requestApplicationHandler = () ->
 applicationRequested = () ->
   $("#request_application").attr("disabled", "disabled")
   $("#request_application").addClass("disabled")
-  
+
+TEMPLATES = {
+
+  button: (opts) ->
+    "<button class=\"big_button plan_button change_phase\" data-next-phase=\"plan_highlights\" data-plan-level=\"#{opts['plan-level']}\" id=\"#{opts['n']}k_selection\" data-plan-price=\"#{opts['plan-price']}\">
+      <div class=\"plan_selection_cost\">
+        <h1>$#{opts['plan-level']}<i>/month</i></h1>
+        <h1><i>to age</i> 67</h1>
+        <h1 id=\"#{opts['n']}k_selection_cost\"></h1>
+      </div>
+    </button>"
+}

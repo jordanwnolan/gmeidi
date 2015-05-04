@@ -27,6 +27,7 @@ module Sinatra
             sp[:short_name] == params[:application][:specialty]
           end.first
 
+          params[:application][:is_final_year] = true if params[:application][:level] == "final_year"
           params[:application][:level] = Specialty.new(specialty).payout_level
           quote = Quote.new(params[:application])
           p quote
