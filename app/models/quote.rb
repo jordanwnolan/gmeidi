@@ -60,7 +60,7 @@ class Quote
 
   def self.get_quotes(params)
     p params
-    if params[:is_final_year]
+    if params[:not_final_year]
       @@FINAL_YEAR_QUOTES[Utils::get_age(params[:age])][Utils::get_level(params[:level])]
     else
       @@QUOTES[Utils::get_age(params[:age])][Utils::get_level(params[:level])]

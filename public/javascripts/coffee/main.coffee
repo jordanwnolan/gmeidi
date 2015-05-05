@@ -62,7 +62,7 @@ quoteSuccessHandler = (data) ->
   data = JSON.parse(data)
   data['amounts'] = data['amounts'].map((num) -> Number(num).toFixed(2))
   if data['amounts'].length == 1
-    finalYearQuoteSuccess(data)
+    notFinalYearQuoteSuccess(data)
   else
     $(".plan_buttons").html(TEMPLATES['button']({n: 5, 'plan-level': 5000}))
     $(".plan_buttons").append(TEMPLATES['button']({n: 3, 'plan-level': 3500}))
@@ -71,7 +71,7 @@ quoteSuccessHandler = (data) ->
     $("#3k_selection_cost").html("$" + data['amounts'][0])
     $("#3k_selection").attr("data-plan-price", data['amounts'][0])
 
-finalYearQuoteSuccess = (data) ->
+notFinalYearQuoteSuccess = (data) ->
   $(".plan_buttons").html(TEMPLATES['button']({n: 2, 'plan-level': 2000}))
   el = $("#2k_selection")
   $("#2k_selection_cost").html("$" + data['amounts'][0])
