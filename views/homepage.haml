@@ -55,16 +55,6 @@
           %input{type: "submit", id:"question_submit", class: "big_button disabled change_phase", value: "Calculate Monthly Premium", disabled: "disabled", data: { next_phase: "review_highlights"}}
     %div{id: "review_highlights", class: "quote"}
       %div{class: "plan_buttons clearfix"}
-        %button{id: "5k_selection", class: "big_button plan_button change_phase", data: {plan_level: "5000", next_phase: "plan_highlights"}}
-          %div{class: "plan_selection_cost"}
-            %h1 $5000<i>/month</i>
-            %h1 <i>to age</i> 67
-            %h1{id: "5k_selection_cost"} $161.72
-        %button{id: "3k_selection", class: "big_button plan_button change_phase", data: {plan_level: "3500", next_phase: "plan_highlights"}}
-          %div{class: "plan_selection_cost"}
-            %h1 $3500<i>/month</i>
-            %h1 <i>to age</i> 67
-            %h1{id: "3k_selection_cost"} $112.43
       %div{id: "plan_highlights"}
         %h1{class: "header"} Plan Highlights
         %table{id: "plan_highlights_table"}
