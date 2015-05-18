@@ -2,7 +2,7 @@ module Constants
   SPECIALTIES = [
     { short_name: "acupuncturist", description: "Acupuncturist", payout_level: 4},
     { short_name: "allergist", description: "Allergist", payout_level: 4},
-    { short_name: "anesthesiologist", description: "Anesthesiologist", payout_level: 3},
+    { short_name: "anesthesiologist", description: "Anesthesiologist", payout_level: 2},
     { short_name: "cardiologist", description: "Cardiologist", payout_level: 4},
     { short_name: "cardiothoracic", description: "Cardiothoracic Surgeon", payout_level: 3},
     { short_name: "dermatologist", description: "Dermatologist", payout_level: 4},
